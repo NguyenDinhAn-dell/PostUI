@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/Home/home";
+import LoginPage from "./pages/Login/login";
+import SignUpPage from "./pages/Register/signUp";
+import SinglePostPage from "./pages/Posts/post";
+import NewPostPage from "./pages/Posts/createPost";
+import TimeLinePage from "./pages/Posts/timeLine"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/post" element={<SinglePostPage />} />
+      <Route path="/newpost" element={<NewPostPage />} />
+      <Route path="/pages" element={<TimeLinePage />} />
+
+      <Route
+        path="/*"
+        element={
+          <>
+            <HomePage></HomePage>
+          </>
+        }
+      />
+    </Routes>
   );
 }
 
